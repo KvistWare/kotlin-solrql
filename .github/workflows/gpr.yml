@@ -1,0 +1,18 @@
+name: Publish to GitHub Packages Repository
+
+on: [push]
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Publish
+        run: gradle publish
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
