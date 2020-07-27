@@ -157,6 +157,9 @@ fun range(pair: Pair<Any, Any>) = range(pair.first, pair.second)
 @SolrQl
 fun tag(name: String, fq: String) = "{!tag=$name}$fq"
 
+@SolrQl
+fun ex(name: String, field: String) = "{!ex=$name}$field"
+
 
 // DSL extensions
 /**
